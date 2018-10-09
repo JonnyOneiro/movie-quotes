@@ -12,7 +12,7 @@ class Nav extends Component {
         return (
         <nav style={navStyle} className="light-blue">
             <div className="nav-wrapper">
-                <Link className="brand-logo" to="/</div>">Movie Quote</Link>
+                <Link className="brand-logo" to="/">Movie Quote</Link>
                 <ul className="right">
                     <li>
                         <Link to="/">Home</Link>

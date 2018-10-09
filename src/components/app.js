@@ -17,7 +17,7 @@ import {secret, people } from '../data/lists';
 const App = () => (
     <div>
         <Nav/>
-            <div className="app">
+            <div className="container">
                 <Route exact path="/" component={Home} />
                 <Route path="/about" component={About} />
                 <Route path="/movie-quote" component={MovieQuote} />
