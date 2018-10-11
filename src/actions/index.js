@@ -9,10 +9,14 @@ export const signUp = (userInfo) => {
             localStorage.setItem('token', resp.data.token);
 
             dispatch({
-                type: types.SIGN_IN
+                type: types.SIGN_UP
             });
+
         } catch(err) {
-            console.log('Sign Up Error: ', err.message);
+            dispatch({
+                type: types.SIGN_UP_ERROR,
+
+            })
         }
     }
 }
@@ -37,4 +41,25 @@ export const signOut = () => {
     return {
         type: types.SIGN_OUT
     };
+}
+
+export const getMovieQuote = () => async dispatch => {
+    try {
+
+        const axiosConfig = {
+            header: {
+                authoriztion: localStorage.getItem('token')
+            }
+        }
+
+        const resp = await axios.get('http://api.reactprototypes.com', axiosConfig);
+
+        dispatch({
+            type: types.GET_MOVIE_QUOTE,
+            quote: resp.data.message,
+        });
+
+    } catch(err) {
+        console.log('movie Quote Error: ', err.message);
+    }
 }

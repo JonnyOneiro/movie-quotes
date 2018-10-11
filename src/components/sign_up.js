@@ -56,6 +56,10 @@ SignUp = reduxForm({
     validate: validate
 })(SignUp);
 
+function mapStateToProps(State) {
+    
+}
+
 export default connect(null, {
     signUp: signUp
 })(SignUp);
