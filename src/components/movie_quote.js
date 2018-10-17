@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { getMovieQuote } from '../actions';
 
 class MovieQuote extends Component {
-    componentDidMount() {
+    componentDidMount(){
         this.props.getMovieQuote();
     }
 
     render() {
         return (
             <div className="center">
-                <h1>Movie Quotes!</h1>
+                <h1>Movie Quote!</h1>
                 <h4>{this.props.quote}</h4>
             </div>
         );
