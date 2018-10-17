@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+// higher order component returns class component
 export default (WrappedComponent) => {
     class Auth extends Component {
         componentDidMount() {
@@ -10,16 +10,15 @@ export default (WrappedComponent) => {
         componentDidUpdate() {
             this.checkAuth();
         }
-
+        
         checkAuth() {
-           if(!this.props.auth) {
-               this.props.history.push('/sign-in');
-           }
+            if(!this.props.auth) {
+                this.props.history.push('/sign-in');
+            }
         }
-
         render() {
-            return <WrappedComponent  log={this.log}/>;
-        }
+            return <WrappedComponent log={this.log}/>
+        }    
     }
 
     function mapStateToProps(state) {
@@ -30,5 +29,3 @@ export default (WrappedComponent) => {
 
     return connect(mapStateToProps)(Auth);
 }
-
-
